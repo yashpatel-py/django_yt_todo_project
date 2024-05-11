@@ -1,5 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Home</h1>
+<div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="addTaskModalLabel">Add New Task</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="" method="post">
+                <div class="mb-3">
+                    <label for="task-name" class="col-form-label">Task:</label>
+                    <input type="text" id="task-name" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="task-note" class="col-form-label">Task Note:</label>
+                    <textarea id="task-note" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="due-date" class="col-form-label">Due Date: </label>
+                    <input type="date" id="due-date" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="due-time" class="col-form-label">Due Time: </label>
+                    <input type="time" id="due-time" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="priority" class="col-form-label">Priority: </label>
+                    <select id="priority" class="form-control">
+                        <option value="1">Low</option>
+                        <option value="2">Medium</option>
+                        <option value="3">High</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save</button>
+        </div>
+        </div>
+    </div>
+    </div>
 {% endblock content %}
