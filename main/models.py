@@ -20,6 +20,9 @@ class Task(models.Model):
     priority = models.IntegerField(choices=PRIORITY_CHOICE, default=MEDIUM)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    due_date = models.DateField(blank=True, null=True)
+    due_time = models.TimeField(blank=True, null=True)
+    tasg = models.CharField(max_length=255, blank=True)
     
     def __str__(self):
         return f"{self.title} ({self.get_priority_display()})"
