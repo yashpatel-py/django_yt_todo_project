@@ -5,6 +5,7 @@ from datetime import datetime
 from django.contrib import messages
 
 # Create your views here.
+@login_required
 def home(request):
     # Fetch the tasks
     tasks = Task.objects.filter(user=request.user).order_by('-created_at')
