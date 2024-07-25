@@ -1,6 +1,10 @@
+from django.http import HttpRequest
+from django.http.response import HttpResponse as HttpResponse
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.views import LogoutView
+from django.urls import reverse_lazy
 
 # Create your views here.
 def register_user(request):
@@ -31,3 +35,10 @@ def custom_login(request):
         # handle get requestr
         pass
     return render(request, 'account/login.html')
+
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy('login')
+    
+    def dispatch(self, request, *args, **kwargs):
+        response = super().dispatch(request, *args, **kwargs)
+        return response
