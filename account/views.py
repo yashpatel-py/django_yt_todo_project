@@ -5,6 +5,7 @@ from .forms import CustomUserCreationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.views import LogoutView
 from django.urls import reverse_lazy
+from django.contrib import messages
 
 # Create your views here.
 def register_user(request):
@@ -29,8 +30,8 @@ def custom_login(request):
             login(request, user)
             return redirect('home')
         else:
-            # handle login error
-            pass
+            messages.error(request, 'Invalid username or password')
+
     else:
         # handle get requestr
         pass
