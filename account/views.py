@@ -41,5 +41,7 @@ class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('login')
     
     def dispatch(self, request, *args, **kwargs):
+        messages.success(request, "You have successfully logged out")
+
         response = super().dispatch(request, *args, **kwargs)
         return response
